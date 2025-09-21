@@ -6,12 +6,29 @@ body {
 }
 body .container {
     flex : 1;
+    background-color : white;
 }
 
 /* Navbar */
     .navbar {
         height : 5rem;
         background-color : white;
+    }
+
+    .navbar-collapse {
+        width: 100%;
+        background: white;
+        z-index: 1050;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Only use position: absolute for small screens */
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 5rem; /* height of navbar */
+            left: 0;
+        }
     }
 
     .fa-regular {

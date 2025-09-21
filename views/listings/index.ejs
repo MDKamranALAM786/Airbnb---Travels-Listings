@@ -8,6 +8,39 @@
             margin: 1rem 0;
         }
 
+        @media (max-width: 991px) {
+            #options {
+                margin-top: 0 !important;
+                transition: margin-top 0.3s;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+            #options.shifted {
+                margin-top: 13rem !important; /* Adjust to match collapsed navbar height */
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tax-toggle {
+                width: auto;
+                margin-left: auto;
+                margin-top: 0;
+                text-align: center;
+            }
+        }
+        @media (max-width: 767px) {
+            #options {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tax-toggle {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
         #filters {
             display: flex;
             flex-direction: row;
@@ -57,17 +90,6 @@
 
         .tax-info {
             display : none;
-        }
-
-        @media (max-width: 768px) {
-            #options {
-                flex-direction: column;   /* stack filters & toggle vertically */
-                align-items: stretch;
-            }
-            .tax-toggle {
-                width: 100%;             /* full width on small screens */
-                text-align: center;
-            }
         }
     </style>
     <body> <br>
@@ -161,6 +183,19 @@
                     {
                         info.style.display = "none";
                     }
+                }
+            });
+            document.addEventListener("DOMContentLoaded", function() {
+                const navbarCollapse = document.getElementById("navbarNavAltMarkup");
+                const optionsDiv = document.getElementById("options");
+
+                if (navbarCollapse && optionsDiv) {
+                    navbarCollapse.addEventListener("show.bs.collapse", function () {
+                        optionsDiv.classList.add("shifted");
+                    });
+                    navbarCollapse.addEventListener("hide.bs.collapse", function () {
+                        optionsDiv.classList.remove("shifted");
+                    });
                 }
             });
         </script>
