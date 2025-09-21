@@ -1,3 +1,4 @@
+import "dotenv/config";
 import mongoose from "mongoose";
 import {Listing} from "../models/listing.js";
 import {sampleListings as data} from "./data.js";
@@ -17,7 +18,7 @@ async function main()
 
 const initDb = async () => {
     await Listing.deleteMany({});
-    let updatedData = data.map((ob) => ({...ob, owner : "68bf15b5a052f44cf8e66269"}));
+    let updatedData = data.map((ob) => ({...ob, owner : "68cb0312e44f57e8c72032e6"}));
     await Listing.insertMany(updatedData);
     console.log("Data Reinitialized");
 };
