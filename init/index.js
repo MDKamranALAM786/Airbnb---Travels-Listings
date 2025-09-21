@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import {Listing} from "../models/listing.js";
 import {sampleListings as data} from "./data.js";
 
-const mongo_url = "mongodb://127.0.0.1:27017/WanderLust";
+const DB_Url = process.env.ATLASDB_URL;
 main()
     .then(() => {
         console.log("Conncetion Successful");
@@ -12,7 +12,7 @@ main()
     });
 async function main()
 {
-    await mongoose.connect(mongo_url);
+    await mongoose.connect(DB_Url);
 }
 
 const initDb = async () => {
