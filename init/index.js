@@ -18,7 +18,7 @@ async function main()
 
 const initDb = async () => {
     await Listing.deleteMany({});
-    let updatedData = data.map((ob) => ({...ob, owner : "69247a50d61695ce3c42227c"}));
+    let updatedData = data.map((ob) => ({...ob, owner : "69ca3663adb056a9f7cffc9d"}));
     await Listing.insertMany(updatedData);
     console.log("Data Reinitialized");
 };
